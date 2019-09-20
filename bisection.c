@@ -14,6 +14,9 @@
 #include <stdio.h>
 #include <math.h>
 
+double f(double x, char e);
+void print(int i, double fa, double fp, double p);
+
 int main(int argc, char **argv) {
 	const double TOL = 0.0001; //tolerance
 	const int MAX_I = 50; //maximum iterations
