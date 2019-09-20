@@ -38,7 +38,8 @@ int main(int argc, char **argv) {
 			b = 2;
 		default: exit(1);
 	}
-	printf("i\tf(a)\tf(p)\tp\n");
+	
+	printf("i\tf(a)\tf(p)\tp\n"); //headers for output table
 	int iterations = 1;
 	fa = f(a, eq); //f(a)
 	
