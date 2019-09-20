@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
 		fp = f(p, eq); //f(p)
 		if(fp == 0 || (b - a)/2 < TOL) { // if a root is found or the midpoint is
 										 // within a certain tolerance
-			store[0][]
+			store[0][iterations]
 			break;
 		}
 		if(fa * fp > 0) { // if the product is positive or not zero
