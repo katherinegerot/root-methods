@@ -54,11 +54,11 @@ int main(int argc, char **argv) {
 		iterations++;
 		if(fa * fp > 0) { // if the product is positive or not zero
 			a = p;
-			f(a) = f(p);
-			print(iterations, fa, fp, p):
+			fa = fp;
+			print(iterations, fa, fp, p);
 		} else { // if the product is negative or zero
 			b = p;
-			print(iterations, fa, fp, p):
+			print(iterations, fa, fp, p);
 		}
 	}
 	
