@@ -15,7 +15,7 @@
 #include <math.h>
 
 double f(double x, char e);
-void print(int i, double p);
+void print(int arr[4][50])
 
 int main(int argc, char **argv) {
 	int store[4][50]; //stores p values up to 50
@@ -54,19 +54,22 @@ int main(int argc, char **argv) {
 		fp = f(p, eq); //f(p)
 		if(fp == 0 || (b - a)/2 < TOL) { // if a root is found or the midpoint is
 										 // within a certain tolerance
-			store[0][iterations]
+			store[0][iterations - 1] = p;
 			break;
 		}
 		if(fa * fp > 0) { // if the product is positive or not zero
 			a = p;
 			fa = fp;
-			print(iterations, p);
+			store[0][iterations - 1] = p;
+
 		} else { // if the product is negative or zero
 			b = p;
-			print(iterations, p);
+			store[0][iterations - 1] = p;
+
 		}
 	}
 	
+	print(store);
 	//NEWTON'S METHOD
 	
 	//FIXED POINT METHOD
@@ -100,7 +103,7 @@ double f(double x, char e) {
 
 void print(int arr[4][50]) {
 	for(int i = 0; i < 50; i++) {
-		printf("%3d ", i);
+		printf("%3d ", i + 1);
 		for(int j = 0; j < 4; j++) {
 			printf("%14.6lf ", arr[j][i]);
 		}
