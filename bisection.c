@@ -27,20 +27,24 @@ int main(int argc, char **argv) {
 		case 'a': 
 			a = -1;
 			b = 1;
+			break;
 		case 'b':
 			a = 0;
 			b = 2;
+			break;
 		case 'c':
 			a = -2;
 			b = 2;
+			break;
 		case 'd':
 			a = -2;
 			b = 2;
+			break;
 		default: exit(1);
 	}
-	
-	printf("i\tf(a)\tf(p)\tp\n"); //headers for output table
-	int iterations = 1;
+	printf("%lf %lf\n", a, b);
+	printf("i\tf(a)\t\tf(p)\t\tp\n"); //headers for output table
+	int iterations = 0;
 	fa = f(a, eq); //f(a)
 	
 	while(iterations <= MAX_I) {
@@ -92,5 +96,5 @@ double f(double x, char e) {
 
 
 void print(int i, double fa, double fp, double p) {
-	printf("%5d %2.4lf %2.4lf %6.6lf\n", i, fa, fp, p);
+	printf("%3d %10.4lf %14.4lf %14.5lf\n", i, fa, fp, p);
 }
