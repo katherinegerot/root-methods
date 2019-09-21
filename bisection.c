@@ -15,10 +15,8 @@
 #include <math.h>
 
 double f(double x, char e);
-void print(int arr[4][50])
 
 int main(int argc, char **argv) {
-	int store[4][50]; //stores p values up to 50
 	const double TOL = 0.0001; //tolerance
 	const int MAX_I = 50; //maximum iterations
 	char eq = argv[1][0]; //equation, either a, b, c, or d
@@ -44,32 +42,30 @@ int main(int argc, char **argv) {
 		default: exit(1);
 	}
 	printf("i\tp\n"); //headers for output table
-	int iterations = 0;
+	int i = 0;
 	fa = f(a, eq); //f(a)
 	
 	//BISECTION METHOD
-	while(iterations <= MAX_I) {
-		iterations++;
+	while(i <= MAX_I) {
+		i++;
+		printf("%2d", i);
 		p = a + (b - a)/2;
 		fp = f(p, eq); //f(p)
 		if(fp == 0 || (b - a)/2 < TOL) { // if a root is found or the midpoint is
 										 // within a certain tolerance
-			store[0][iterations - 1] = p;
+			printf("%14.6lf\n");
 			break;
 		}
 		if(fa * fp > 0) { // if the product is positive or not zero
 			a = p;
 			fa = fp;
-			store[0][iterations - 1] = p;
 
 		} else { // if the product is negative or zero
 			b = p;
-			store[0][iterations - 1] = p;
-
 		}
+		printf("%14.6lf\n");
+		
 	}
-	
-	print(store);
 	//NEWTON'S METHOD
 	
 	//FIXED POINT METHOD
@@ -98,15 +94,4 @@ double f(double x, char e) {
 		default: exit(1);
 	}
 	
-}
-
-
-void print(int arr[4][50]) {
-	for(int i = 0; i < 50; i++) {
-		printf("%3d ", i + 1);
-		for(int j = 0; j < 4; j++) {
-			printf("%14.6lf ", arr[j][i]);
-		}
-		printf("\n");
-	}
 }
