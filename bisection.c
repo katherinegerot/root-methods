@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
 		fp = f(p, eq); //f(p)
 		if(fp == 0 || (b - a)/2 < TOL) { // if a root is found or the midpoint is
 										 // within a certain tolerance
-			printf("%14.6lf\n");
+			printf("%14.6lf\n", p);
 			break;
 		}
 		if(fa * fp > 0) { // if the product is positive or not zero
@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
 		} else { // if the product is negative or zero
 			b = p;
 		}
-		printf("%14.6lf\n");
+		printf("%14.6lf\n", p);
 		
 	}
 	//NEWTON'S METHOD
