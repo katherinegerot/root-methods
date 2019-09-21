@@ -45,24 +45,12 @@ int main(int argc, char **argv) {
 	int i = 0;
 	fa = f(a, eq); //f(a)
 	
-	//BISECTION METHOD
+	//NEWTON'S METHOD
 	while(i <= MAX_I) {
 		i++;
-		printf("%2d", i);
-		p = a + (b - a)/2;
-		fp = f(p, eq); //f(p)
-		if(fp == 0 || (b - a)/2 < TOL) { // if a root is found or the midpoint is
-										 // within a certain tolerance
-			printf("%14.6lf\n", p);
-			break;
-		}
-		if(fa * fp > 0) { // if the product is positive or not zero
-			a = p;
-			fa = fp;
-
-		} else { // if the product is negative or zero
-			b = p;
-		}
+		
+		//...
+		
 		printf("%14.6lf\n", p);
 		
 	}
