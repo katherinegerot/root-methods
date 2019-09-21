@@ -15,7 +15,7 @@
 #include <math.h>
 
 double f(double x, char e);
-void print(int i, double fa, double fp, double p);
+void print(int i, double fa, double fp, double a, double b, double p);
 
 int main(int argc, char **argv) {
 	const double TOL = 0.0001; //tolerance
@@ -42,27 +42,27 @@ int main(int argc, char **argv) {
 			break;
 		default: exit(1);
 	}
-	printf("%lf %lf\n", a, b);
-	printf("i\tf(a)\t\tf(p)\t\tp\n"); //headers for output table
+	printf("i\tf(a)\t\tf(p)\t\ta\t\tb\t\tp\n"); //headers for output table
 	int iterations = 0;
 	fa = f(a, eq); //f(a)
+	print(iterations, fa, 0, a, b, 0);
 	
 	while(iterations <= MAX_I) {
+		iterations++;
 		p = a + (b - a)/2;
 		fp = f(p, eq); //f(p)
 		if(fp == 0 || (b - a)/2 < TOL) { // if a root is found or the midpoint is
 										 // within a certain tolerance
-			print(iterations, fa, fp, p);
+			print(iterations, fa, fp, a, b, p);
 			break;
 		}
-		iterations++;
 		if(fa * fp > 0) { // if the product is positive or not zero
 			a = p;
 			fa = fp;
-			print(iterations, fa, fp, p);
+			print(iterations, fa, fp, a, b, p);
 		} else { // if the product is negative or zero
 			b = p;
-			print(iterations, fa, fp, p);
+			print(iterations, fa, fp, a, b, p);
 		}
 	}
 	
@@ -95,6 +95,6 @@ double f(double x, char e) {
 }
 
 
-void print(int i, double fa, double fp, double p) {
-	printf("%3d %10.4lf %14.4lf %14.5lf\n", i, fa, fp, p);
+void print(int i, double fa, double fp, double a, double b, double p) {
+	printf("%3d %10.4lf %14.6lf %14.6lf %14.6lf %14.6lf\n", i, fa, fp, a, b, p);
 }
