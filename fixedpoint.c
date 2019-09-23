@@ -22,12 +22,12 @@ int main(int argc, char **argv) {
 	const int MAX_I = 50; //maximum iterations
 	char eq = argv[1][0]; //equation, either a, b, c, or d
 	double p; 
-	double p0 = 5.37; //intersection of y and x
+	double p0 = -1; //intersection of y and x
 	
 	printf("i\tp\n"); //headers for output table
 	int i = 0;
 	
-	//NEWTON'S METHOD
+	//FIXED POINT METHOD
 	while(i <= MAX_I) {
 		i++;
 		printf("%2d", i);
