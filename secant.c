@@ -21,27 +21,25 @@ int main(int argc, char **argv) {
 	const int MAX_I = 50; //maximum iterations
 	char eq = argv[1][0]; //equation, either a, b, c, or d
 	double p; 
-	double p0 = 0.5;
+	double p0 = 0;
 	double p1 = 1;
+	
 	
 	printf("i\tp\n"); //headers for output table
 	int i = 1;
-	double f0 = f(p0, eq);
-	double f1 = f(p1, eq);
 	
 	//SECANT METHOD
 	while(i <= MAX_I) {
 		i++;
 		printf("%2d", i);
-		p = p1 - f1 * (p1 - p0)/(f1 - f0);
-		if(fabs(p - p0) < TOL) {
+		p = ((p0 * f(p1, eq)) - (p1 * f(p0, eq)))/(f(p1, eq)-f(p0, eq));
+		
+		if(fabs(f(p, eq)) < TOL || f(p1, eq) * f(p, eq) == 0) {
 			printf("%14.6lf\n", p);
 			break;
-		}			
-		printf("%14.6lf\n", p);
-		f0 = f1;
+		}
+		p0 = p1;
 		p1 = p;
-		f1 = f(p, eq);
 		printf("%14.6lf\n", p);
 	}
 	return 0;
