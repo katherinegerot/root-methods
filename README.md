@@ -3,23 +3,23 @@
 ### Input
 **Newton's**
 
-p0 : 1
+`p0 : 1`
 
 **Secant**
 
-p0 : 0
+`p0 : 0`
 
-p1 : 1
+`p1 : 1`
 
 **Fixed Point**
 
-p0 : -1
+`p0 : -1`
 
-g_a(p) = p = (-3x^3 + 2x^2 + 2e^x + 1)/5
+`g_a(p) = p = (-3x^3 + 2x^2 + 2e^x + 1)/5`
 
-g_b(p) = p = sqrt((x^4 - 2)/3)
+`g_b(p) = p = sqrt((x^4 - 2)/3)`
 
-g_c(p) = p = sqrt(3x - e^x - 2)
+`g_c(p) = p = sqrt(3x - e^x - 2)`
 
 ## Equation A
 ```
