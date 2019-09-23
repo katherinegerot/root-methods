@@ -3,7 +3,7 @@
 * Date: 09/20/2019
 * Class: CSCE 440
 * 
-* Program computing Newton's Method with the following equations:
+* Program computing the Secant Method with the following equations:
 * (a) 3x^3 - 2x^2 + 5x - 2e^x + 1
 * (b) x^4 + 3x^2 - 2
 * (c) 3x - x^2 - e^x - 2
